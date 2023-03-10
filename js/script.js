@@ -57,36 +57,60 @@ favSeis.addEventListener("click",(e) =>{
 //================================================================================================================================
 
 let botaoBusca = document.querySelector("#botaoBusca");
+let inputBusca = document.querySelector("#inputBusca");
 
 
-let urlTeste = "http://www.omdbapi.com/?apikey=79dc6bc4&t=A%20Nightmare%20on%20Elm%20Street";
+let urlTeste = "http://www.omdbapi.com/?apikey=79dc6bc4&i=tt0234215";
 let urlBusca = "http://www.omdbapi.com/?apikey=79dc6bc4&s=";
 
 
 //para buscar filmes na barra de pesquisa
 
 function buscarFilme() {
-    var inputBusca = document.querySelector("#inputBusca");
-    var valorInput = inputBusca.value;
+    let valorInput = inputBusca.value;
 
     if(valorInput != ""){
         console.log(valorInput);
 
         var urlBuscaCompleta = urlBusca + valorInput;
 
+        let filmes = new Array();
+
         fetch(urlBuscaCompleta)
         .then(resp=>resp.json())
         .then(buscaFilmeJson =>{
-            if(buscaFilmeJson.Response == "True"){
-                console.log(buscaFilmeJson);
-            }else{
-                console.log("Nenhum filme nao encontrado");
-            }
+            buscaFilmeJson.Search.forEach((item)=>{
+                console.log(item);
+                let filme = new Filme(
+                    item.imdbID,
+                    item.Title,
+                    item.Year,
+                    null,
+                    item.Poster,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                );
+                filmes.push(filme);
+                console.log(filmes);
+            })
             
         });
     }
+}
 
-
+let listarFilmes = async (filmes) =>{
+    let listaFilmes = await document.querySelector("#lista-filmes");
+    listaFilmes.innerHTML = "";
+    console.log(listaFilmes);
+    if(filmes.length > 0){
+        filmes.forEach(async(filme) =>{
+            listaFilmes.appendChild(await filme.getCard());
+        })
+    }
 }
 
 botaoBusca.addEventListener("click",(e) =>{
@@ -118,7 +142,8 @@ function gerarFilme(){
 }
 
 
-gerarFilme();
+//gerarFilme();
+
 
 
 
