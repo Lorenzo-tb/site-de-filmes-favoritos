@@ -11,11 +11,22 @@
     width: 100%;
 }
 
-#lista-dos-filmes{
+#lista-filmes{
     display: flex;
-    justify-content:space-evenly;
+    justify-content:space-around;
     flex-wrap: wrap;
-    padding-left: 6rem;
-    padding-right: 6rem;
-    padding-top: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 6rem;
+}
+
+nav{
+    background-color: rgb(255, 0, 0);
+
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }

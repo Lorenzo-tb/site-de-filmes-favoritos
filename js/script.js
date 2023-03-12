@@ -2,8 +2,7 @@ let botaoBusca = document.querySelector("#botaoBusca");
 let inputBusca = document.querySelector("#inputBusca");
 
 
-let urlTeste = "http://www.omdbapi.com/?apikey=79dc6bc4&i=tt0234215";
-let urlBusca = "http://www.omdbapi.com/?apikey=79dc6bc4&s=";
+
 
 
 //para buscar filmes na barra de pesquisa
@@ -11,7 +10,7 @@ let urlBusca = "http://www.omdbapi.com/?apikey=79dc6bc4&s=";
 function buscarFilme() {
     let valorInput = inputBusca.value;
 
-    if(valorInput != ""){
+    if(valorInput.length > 0 && valorInput != ""){
         console.log(valorInput);
 
         var urlBuscaCompleta = urlBusca + valorInput;
@@ -19,17 +18,17 @@ function buscarFilme() {
         let filmes = new Array();
 
         fetch(urlBuscaCompleta)
-        .then(resp=>resp.json())
-        .then(buscaFilmeJson =>{
-            buscaFilmeJson.Search.forEach((item)=>{
+        .then((resp) => resp.json())
+        .then((resp) =>{
+            resp.Search.forEach((item)=>{
                 console.log(item);
                 let filme = new Filme(
                     item.imdbID,
                     item.Title,
                     item.Year,
                     null,
-                    item.Poster,
                     null,
+                    item.Poster,
                     null,
                     null,
                     null,
@@ -37,11 +36,11 @@ function buscarFilme() {
                     null
                 );
                 filmes.push(filme);
-                console.log(filmes);
-            })
-            
-        });
+            });
+            listarFilmes(filmes);
+        })
     }
+    return false;
 }
 
 let listarFilmes = async (filmes) =>{
@@ -49,19 +48,85 @@ let listarFilmes = async (filmes) =>{
     listaFilmes.innerHTML = "";
     console.log(listaFilmes);
     if(filmes.length > 0){
+        console.log("ola mundo");
         filmes.forEach(async(filme) =>{
             listaFilmes.appendChild(await filme.getCard());
-        })
+        });
     }
 }
 
-botaoBusca.addEventListener("click",(e) =>{
+botaoBusca.onclick = async() =>{
     buscarFilme();
-});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //========================================================================================================================
 //para gerar um filme completo
+
+let urlTeste = "http://www.omdbapi.com/?apikey=79dc6bc4&i=tt0234215";
+let urlBusca = "http://www.omdbapi.com/?apikey=79dc6bc4&s=";
+
 function gerarFilme(){
     fetch(urlTeste)
     .then(resp=>resp.json())

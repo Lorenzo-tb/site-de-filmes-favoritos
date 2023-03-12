@@ -52,3 +52,65 @@ favCinco.addEventListener("click",(e) =>{
 favSeis.addEventListener("click",(e) =>{
     mudarImagem(imagemSeis);
 });
+
+==================================================================================================================
+
+<div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
