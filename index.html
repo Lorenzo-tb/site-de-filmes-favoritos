@@ -6,163 +6,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="./js/classes.js"></script>
     <title>Catalogo de filmes</title>
 </head>
 <body>
-    <header>
-        <div id="logotipo">
-            <div id="logoimg">
-                <img id="imagem" src="./images/logo.jpg"/>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div id="logotipo">
+                <div id="logoimg">
+                    <img id="imagem" src="./images/logo.jpg"/>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Favoritos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categorias
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">Acao</a></li>
+                          <li><a class="dropdown-item" href="#">Aventura/a></li>
+                          <li><a class="dropdown-item" href="#">Terror</a></li>
+                          <li><a class="dropdown-item" href="#">Comedia</a></li>
+                          <li><a class="dropdown-item" href="#">Suspense</a></li>
+                          <li><a class="dropdown-item" href="#">Romance</a></li>
+                          
+                        </ul>
+                      </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                </form>
             </div>
         </div>
-
-        <select id="combo">
-            <option>Categorias</option>
-            <option>Terror</option>
-            <option>Ação/Aventura</option>
-            <option>Suspense</option>
-            <option>Comédia</option>
-            <option>Drama</option>
-            <option>Favoritos</option>
-        </select>
-
-        <div id="pesquisa">
-            <img id="lupa" src="./images/lupa.png" alt="Buscar..."/>
-            <input type="text" id="inputBusca" placeholder="Buscar"/>
-            <button id="botaoBusca">Buscar</button>
-          </div>
-
-    </header>
+    </nav>
+<!--=======================================================================================================================-->
     <main>
-        <div id="lista-filmes">
-            <div class="flex-container">
-            <div class="item">
-                <a href="">
-                    <div class="capa-img">
-                    </div>
-                    <div class="tfilme"><h3></h3></div> 
-                    <div class="informasao">
-                        <p>INFORMAÇÕES</p>
-                    </div>
-                </a>
-                <div class="diresao">
-                    <P>Direção:</P>
-                </div>
-                <div class="curtir" >
-                    <button class="btn" id="btnUm">
-                        <img class="estrela" id="imgUm" src="./images/fav.png" alt="">
-                    </button>
-                </div>
-            </div>
+        <div id="lista-dos-filmes">
 
-            <div class="item">
-                <a href="">
-                    <div class="capa-img">
-                    </div>
-                    <div class="tfilme"><h3></h3></div> 
-                    <div class="informasao">
-                        <p>INFORMAÇÕES</p>
-                    </div>
-                </a>
-                <div class="diresao">
-                    <P>Direção:</P>
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
                 </div>
-                <div class="curtir" >
-                    <button class="btn" id="btnDois">
-                        <img class="estrela" id="imgDois" src="./images/fav.png" alt="">
-                    </button>
-                </div>
-            </div>
+              </div>
 
-            <div class="item">
-                <a href="">
-                    <div class="capa-img">
-                    </div>
-                    <div class="tfilme"><h3></h3></div> 
-                    <div class="informasao">
-                        <p>INFORMAÇÕES</p>
-                    </div>
-                </a>
-                <div class="diresao">
-                    <P>Direção:</P>
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
                 </div>
-                <div class="curtir" >
-                    <button class="btn" id="btnTres">
-                        <img class="estrela" id="imgTres" src="./images/fav.png" alt="">
-                    </button>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
                 </div>
-            </div>
-            
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">---</h5>
+                  
+                  <a href="#" class="btn btn-primary">Mais Detalhes</a>
+                  <input type="checkbox">Favoritos
+                </div>
+              </div>
+
+              
+        </div>
+        <div id="mostrar-o-filme">
+
         </div>
 
-        <div class="flex-container">
-            <div class="item">
-                <a href="">
-                    <div class="capa-img">
-                    </div>
-                    <div class="tfilme"><h3></h3></div> 
-                    <div class="informasao">
-                        <p>INFORMAÇÕES</p>
-                    </div>
-                </a>
-                <div class="diresao">
-                    <P>Direção:</P>
-                </div>
-                <div class="curtir" >
-                    <button class="btn" id="btnQuatro">
-                        <img class="estrela" id="imgQuatro" src="./images/fav.png" alt="">
-                    </button>
-                </div>
-            </div>
-
-            <div class="item">
-                <a href="">
-                    <div class="capa-img">
-                        
-                    </div>
-                    <div class="tfilme"><h3></h3></div> 
-                    <div class="informasao">
-                        <p>INFORMAÇÕES</p>
-                    </div>
-                </a>
-                <div class="diresao">
-                    <P>Direção:</P>
-                </div>
-                <div class="curtir" >
-                    <button class="btn" id="btnCinco">
-                        <img class="estrela" id="imgCinco" src="./images/fav.png" alt="">
-                    </button>
-                </div>
-            </div>
-
-            <div class="item">
-                <a href="">
-                    <div class="capa-img">
-                    </div>
-                    <div class="tfilme"><h3></h3></div> 
-                    <div class="informasao">
-                        <p>INFORMAÇÕES</p>
-                    </div>
-                </a>
-                <div class="diresao">
-                    <P>Direção:</P>
-                </div>
-                <div class="curtir" >
-                    <button class="btn" id="btnSeis">
-                        <img class="estrela" id="imgSeis" src="./images/fav.png" alt="">
-                    </button>
-                </div>
-            </div>
-            
-        </div>
-        </div>
-
-
-        
-
-    
-        
     </main>
     
 </body>
