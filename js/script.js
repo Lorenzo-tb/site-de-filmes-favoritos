@@ -62,7 +62,7 @@ let detalhesFilme= (id) =>{
             resp.Director,
             resp.Actors.split(", "),
             resp.Rated,
-            resp.Ratings[1]
+            resp.imdbRating
         );
 
         let detalhesDoFilme = document.querySelector("#mostrar-o-filme");

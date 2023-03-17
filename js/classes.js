@@ -87,18 +87,27 @@ class Filme{
         divInformacoes.setAttribute("id", "informacoes");
         divInformacoes.setAttribute("class", "card mb-3");
 
+        let algumaCoisa = document.createElement("div");
+        algumaCoisa.setAttribute("class", "row g-0");
+
         let bunner = document.createElement("div");
-        bunner.setAttribute("id","bunner");
+        bunner.setAttribute("class","col-md-4");
 
         let bunnerImg = document.createElement("img");
         bunnerImg.setAttribute("src",this.cartaz);
-        bunnerImg.setAttribute("id", "bunnerImg");
+        bunnerImg.setAttribute("class", "img-fluid rounded-start");
+
+        
+
 
 
 
         let todosDetalhes = document.createElement("div");
         todosDetalhes.setAttribute("id", "todosDetalhes");
-        todosDetalhes.setAttribute("class", "card-body");
+        todosDetalhes.setAttribute("class", "col-md-8");
+
+        let maisDetalhes = document.createElement("div");
+        maisDetalhes.setAttribute("class", "card-body");
 
         let titulo = document.createElement("h1");
         titulo.setAttribute("class", "card-title");
@@ -131,14 +140,21 @@ class Filme{
         divInformacoes.appendChild(bunner);
         bunner.appendChild(bunnerImg);
 
-        divInformacoes.appendChild(todosDetalhes);
-        todosDetalhes.appendChild(titulo);
-        todosDetalhes.appendChild(sinopse);
-        todosDetalhes.appendChild(anoDoFilme);
-        todosDetalhes.appendChild(atores);
-        todosDetalhes.appendChild(direcao);
-        todosDetalhes.appendChild(classificacao);
-        todosDetalhes.appendChild(avaliacao);
+        divInformacoes.appendChild(algumaCoisa);
+        algumaCoisa.appendChild(bunner);
+        bunner.appendChild(bunnerImg);
+
+        algumaCoisa.appendChild(todosDetalhes);
+        todosDetalhes.appendChild(maisDetalhes);
+
+        maisDetalhes.appendChild(titulo);
+        maisDetalhes.appendChild(sinopse);
+        maisDetalhes.appendChild(anoDoFilme);
+        maisDetalhes.appendChild(atores);
+        maisDetalhes.appendChild(direcao);
+        maisDetalhes.appendChild(classificacao);
+        maisDetalhes.appendChild(avaliacao);
+
 
         return divInformacoes
     }
