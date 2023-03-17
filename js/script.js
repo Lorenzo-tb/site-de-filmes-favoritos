@@ -78,7 +78,9 @@ let detalhesFilme= (id) =>{
 
 let listarFilmes = async (filmes) =>{
     let listaFilmes = await document.querySelector("#lista-filmes");
+    let detalhesDoFilme = document.querySelector("#mostrar-o-filme");
     listaFilmes.innerHTML = "";
+    detalhesDoFilme.innerHTML ="";
     console.log(listaFilmes);
     if(filmes.length > 0){
         console.log("ola mundo");
