@@ -13,7 +13,7 @@ class Diretor{
 }
 
 class Filme{
-    constructor(id, titulo, ano, genero, duracao, cartaz, sinopse, direcao, atores, classificacao, rated){
+    constructor(id, titulo, ano, genero, duracao, cartaz, sinopse, direcao, atores, classificacao, rated, btnInformacoes){
         this.id = id;
         this.titulo = titulo;
         this.ano = ano;
@@ -25,15 +25,16 @@ class Filme{
         this.atores = atores;
         this.classificacao = classificacao;
         this.rated = rated;
-        
-        this.duracao = duracao;
+        this.btnInformacoes = btnInformacoes;
     }
+
     getCard = async() =>{
         let card = document.createElement("div");
         card.setAttribute("class","card");
 
         let imgCartaz = document.createElement("img");
-        imgCartaz.setAttribute("class", "card-img-topz");
+        imgCartaz.setAttribute("class", "card-img-top");
+        imgCartaz.setAttribute("id", "bunnerImg")
         imgCartaz.setAttribute("src",this.cartaz);
 
         let cardBody = document.createElement("div");
@@ -66,10 +67,80 @@ class Filme{
         card.appendChild(imgCartaz);
         card.appendChild(cardBody);
 
+        this.setBtnInformacoes();
         cardBody.appendChild(hCardTitle);
         cardBody.appendChild(divMaisDetalhes);
+        cardBody.appendChild(this.btnInformacoes);
 
         return card;
+    }
+
+    setBtnInformacoes = ()=>{
+        this.btnInformacoes = document.createElement("button");
+        this.btnInformacoes.appendChild(document.createTextNode("Mais Detalhes"));
+        this.btnInformacoes.setAttribute("class","btn btn-outline-danger btn-detalhes");
+        this.btnInformacoes.setAttribute("id", this.id);
+    }
+
+    getCardDetalhes = ()=>{
+        let divInformacoes = document.createElement("div");
+        divInformacoes.setAttribute("id", "informacoes");
+        divInformacoes.setAttribute("class", "card mb-3");
+
+        let bunner = document.createElement("div");
+        bunner.setAttribute("id","bunner");
+
+        let bunnerImg = document.createElement("img");
+        bunnerImg.setAttribute("src",this.cartaz);
+        bunnerImg.setAttribute("id", "bunnerImg");
+
+
+
+        let todosDetalhes = document.createElement("div");
+        todosDetalhes.setAttribute("id", "todosDetalhes");
+        todosDetalhes.setAttribute("class", "card-body");
+
+        let titulo = document.createElement("h1");
+        titulo.setAttribute("class", "card-title");
+        titulo.appendChild(document.createTextNode(this.titulo));
+
+        let sinopse = document.createElement("h10");
+        sinopse.setAttribute("class", "card-text");
+        sinopse.appendChild(document.createTextNode(this.sinopse));
+
+        let anoDoFilme = document.createElement("h5");
+        anoDoFilme.appendChild(document.createTextNode("Ano: " + this.ano));
+        anoDoFilme.setAttribute("class", "card-text");
+
+        let atores = document.createElement("h5");
+        atores.setAttribute("class", "card-text");
+        atores.appendChild(document.createTextNode("Elenco: " + this.atores));
+
+        let direcao = document.createElement("h5");
+        direcao.setAttribute("class", "card-text");
+        direcao.appendChild(document.createTextNode("Direcao: " + this.direcao));
+
+        let classificacao = document.createElement("h5");
+        classificacao.setAttribute("class", "card-text");
+        classificacao.appendChild(document.createTextNode("Classificacao: " + this.classificacao));
+
+        let avaliacao = document.createElement("h5");
+        avaliacao.setAttribute("class", "card-text");
+        avaliacao.appendChild(document.createTextNode("Avaliacao: " + this.rated));
+
+        divInformacoes.appendChild(bunner);
+        bunner.appendChild(bunnerImg);
+
+        divInformacoes.appendChild(todosDetalhes);
+        todosDetalhes.appendChild(titulo);
+        todosDetalhes.appendChild(sinopse);
+        todosDetalhes.appendChild(anoDoFilme);
+        todosDetalhes.appendChild(atores);
+        todosDetalhes.appendChild(direcao);
+        todosDetalhes.appendChild(classificacao);
+        todosDetalhes.appendChild(avaliacao);
+
+        return divInformacoes
     }
 }
 

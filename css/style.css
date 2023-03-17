@@ -30,3 +30,23 @@ header{
     width: 100%;
     z-index: 1;
 }
+
+#bunner{
+    text-align: center;
+    width: 32vw;
+}
+
+#bunnerImg{
+    height: 70vh;
+    width: 25vw;
+    text-align: center;
+
+}
+
+#todosDetalhes{
+    width: 50vw;
+    float: left;
+}
+#informacoes{
+    display: flex;
+}

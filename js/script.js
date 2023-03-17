@@ -7,6 +7,8 @@ let inputBusca = document.querySelector("#inputBusca");
 
 //para buscar filmes na barra de pesquisa
 
+let urlId = "http://www.omdbapi.com/?apikey=79dc6bc4&i=";
+
 function buscarFilme() {
     let valorInput = inputBusca.value;
 
@@ -43,14 +45,51 @@ function buscarFilme() {
     return false;
 }
 
+let detalhesFilme= (id) =>{
+    fetch(urlId+id)
+    .then((resp)=> resp.json())
+    .then((resp)=>{
+        console.log(resp);
+
+        let filme = new Filme(
+            resp.imdbID,
+            resp.Title,
+            resp.Year,
+            resp.Genre.split(", "),
+            resp.Runtime,
+            resp.Poster,
+            resp.Plot,
+            resp.Director,
+            resp.Actors.split(", "),
+            resp.Rated,
+            resp.Ratings[1]
+        );
+
+        let detalhesDoFilme = document.querySelector("#mostrar-o-filme");
+        let listaFilmes = document.querySelector("#lista-filmes");
+        detalhesDoFilme.innerHTML = "";
+        console.log(detalhesDoFilme);
+        console.log(filme.getCardDetalhes());
+        listaFilmes.innerHTML = "";
+        detalhesDoFilme.appendChild(filme.getCardDetalhes());
+        console.log(detalhesDoFilme);
+    });
+}
+
 let listarFilmes = async (filmes) =>{
     let listaFilmes = await document.querySelector("#lista-filmes");
     listaFilmes.innerHTML = "";
     console.log(listaFilmes);
     if(filmes.length > 0){
         console.log("ola mundo");
+
         filmes.forEach(async(filme) =>{
             listaFilmes.appendChild(await filme.getCard());
+            //console.log(filme.id);
+            filme.btnInformacoes.onclick=()=>{
+                detalhesFilme(filme.id);
+                
+            }
         });
     }
 }
@@ -58,6 +97,11 @@ let listarFilmes = async (filmes) =>{
 botaoBusca.onclick = async() =>{
     buscarFilme();
 }
+
+
+
+
+
 
 
 
