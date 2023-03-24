@@ -30,11 +30,12 @@ class Filme{
 
     getCard = async() =>{
         let card = document.createElement("div");
-        card.setAttribute("class","card");
+        card.setAttribute("class","card cardDois");
+
 
         let imgCartaz = document.createElement("img");
         imgCartaz.setAttribute("class", "card-img-top");
-        imgCartaz.setAttribute("id", "bunnerImg")
+        imgCartaz.setAttribute("class", "bunnerImg")
         imgCartaz.setAttribute("src",this.cartaz);
 
         let cardBody = document.createElement("div");
@@ -137,6 +138,22 @@ class Filme{
         avaliacao.setAttribute("class", "card-text");
         avaliacao.appendChild(document.createTextNode("Avaliacao: " + this.rated));
 
+
+        let botoes = document.createElement("div");
+        botoes.setAttribute("div","botoes");
+        let botaoFav = document.createElement("button");
+        botaoFav.setAttribute("class","btn btn-outline-danger btn-detalhes buto");
+        botaoFav.setAttribute("id","botaoFavoritar");
+        botaoFav.appendChild(document.createTextNode("Favoritar"));
+        let botaoFechar = document.createElement("button");
+        botaoFechar.setAttribute("class","btn btn-outline-danger btn-detalhes buto");
+        botaoFechar.setAttribute("id","botaoFechar");
+        botaoFechar.appendChild(document.createTextNode("Fechar informações"));
+
+        botoes.appendChild(botaoFav);
+        botoes.appendChild(botaoFechar);
+
+
         divInformacoes.appendChild(bunner);
         bunner.appendChild(bunnerImg);
 
@@ -154,9 +171,11 @@ class Filme{
         maisDetalhes.appendChild(direcao);
         maisDetalhes.appendChild(classificacao);
         maisDetalhes.appendChild(avaliacao);
+        maisDetalhes.appendChild(botoes);
 
 
-        return divInformacoes
+
+        return divInformacoes;
     }
 }
 

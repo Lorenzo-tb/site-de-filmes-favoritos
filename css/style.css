@@ -31,17 +31,22 @@ header{
     z-index: 1;
 }
 
-#bunner{
+.bunner{
     text-align: center;
     width: 32vw;
 }
 
-/*#bunnerImg{
+.bunnerImg{
     height: 70vh;
     width: 25vw;
     text-align: center;
 
-}*/
+}
+
+.cardDois{
+    margin-bottom: 5%;
+    width: 25vw;
+}
 
 #todosDetalhes{
     width: 50vw;
@@ -49,4 +54,11 @@ header{
 }
 #informacoes{
     display: flex;
+    padding-top: 8%;
+}
+
+
+.buto{
+    margin-left: 25%;
+    margin-top: 5%;
 }

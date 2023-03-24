@@ -73,8 +73,30 @@ let detalhesFilme= (id) =>{
         listaFilmes.innerHTML = "";
         detalhesDoFilme.appendChild(filme.getCardDetalhes());
         console.log(detalhesDoFilme);
+
+        document.querySelector("#botaoFechar").onclick = ()=>{
+            detalhesDoFilme.innerHTML = "";
+            listaFilmes.style.display="flex";
+            detalhesDoFilme.style.display="none";
+        }
+
+        document.querySelector("#botaoFavoritar").onclick =()=>{
+            let filmesString = localStorage.getItem(filme);
+            
+            var filmes = JSON.parse(filmesString);
+
+            filmes=JSON.stringify(filmes);
+
+            localStorage.setItem(filmesString, filmes);
+
+            console.log(localStorage);
+
+        }
+        listaFilmes.style.display="none";
     });
 }
+
+
 
 let listarFilmes = async (filmes) =>{
     let listaFilmes = await document.querySelector("#lista-filmes");
