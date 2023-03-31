@@ -116,11 +116,8 @@ let detalhesFilme= (id) =>{
     });
 }
 
-
 btnFavoritos.onclick = (e) =>{
-    
     let filmesFavoritos = new Array();
-
         for(let aux=0; aux<num; aux++){
             let item = JSON.parse(localStorage[aux]);
             let filme = new Filme(
@@ -139,31 +136,8 @@ btnFavoritos.onclick = (e) =>{
             filmesFavoritos.push(filme);
             console.log(filmesFavoritos);
         }
-
-    listarFilmesDois(filmesFavoritos);
-
+    listarFilmes(filmesFavoritos);
 };
-
-let listarFilmesDois = async (filmesFavoritos) =>{
-    let listaFilmes = document.querySelector("#lista-filmes");
-    let detalhesDoFilme = document.querySelector("#mostrar-o-filme");
-    listaFilmes.innerHTML = "";
-    detalhesDoFilme.innerHTML ="";
-    console.log(listaFilmes);
-    if(filmesFavoritos.length > 0){
-        console.log("teste");
-        filmesFavoritos.forEach(async(filme) =>{
-            listaFilmes.appendChild(await filme.getCard());
-
-            console.log(filme.id);
-
-            filme.btnInformacoes.onclick=()=>{
-                detalhesFilme(filme.id);
-                
-            }
-        });
-    }
-}
 
 
 let listarFilmes = async (filmes) =>{
@@ -175,7 +149,6 @@ let listarFilmes = async (filmes) =>{
     if(filmes.length > 0){
         filmes.forEach(async(filme) =>{
             listaFilmes.appendChild(await filme.getCard());
-            //console.log(filme.id);
             filme.btnInformacoes.onclick=()=>{
                 detalhesFilme(filme.id);
                 
