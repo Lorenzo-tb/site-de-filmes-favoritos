@@ -1,9 +1,20 @@
 let botaoBusca = document.querySelector("#botaoBusca");
 let inputBusca = document.querySelector("#inputBusca");
+let btnLimpar = document.querySelector("#limpar");
+let btnFavoritos = document.querySelector("#favoritos");
+let urlBusca = "http://www.omdbapi.com/?apikey=79dc6bc4&s=";
+
+let num = localStorage.length;
+console.log(num);
 
 
 
-
+btnLimpar.onclick=(e) =>{
+    localStorage.clear();
+    num = localStorage.length;
+    console.log(num);
+     
+}
 
 //para buscar filmes na barra de pesquisa
 
@@ -38,6 +49,7 @@ function buscarFilme() {
                     null
                 );
                 filmes.push(filme);
+                console.log(filmes)
             });
             listarFilmes(filmes);
         })
@@ -81,32 +93,86 @@ let detalhesFilme= (id) =>{
         }
 
         document.querySelector("#botaoFavoritar").onclick =()=>{
-            let filmesString = localStorage.getItem(filme);
-            
-            var filmes = JSON.parse(filmesString);
+            let fazer = false;
 
-            filmes=JSON.stringify(filmes);
+            for(let aux=0;aux<num ; aux++){
+                let filmeAtual = JSON.parse(localStorage[aux]);
+                if(filme.id == filmeAtual.id){
+                    fazer = true;
+                    break;
+                }
+            }
 
-            localStorage.setItem(filmesString, filmes);
-
-            console.log(localStorage);
-
+            if(fazer == false){
+                var filmesString = localStorage;
+                let filmeString = JSON.stringify(filme);
+                filmesString.setItem(num, filmeString);
+                console.log(filmesString)
+                console.log(JSON.parse(localStorage[num]))
+                num = localStorage.length;
+            }
         }
         listaFilmes.style.display="none";
     });
 }
 
 
+btnFavoritos.onclick = (e) =>{
+    
+    let filmesFavoritos = new Array();
+
+        for(let aux=0; aux<num; aux++){
+            let item = JSON.parse(localStorage[aux]);
+            let filme = new Filme(
+                item.id,
+                item.titulo,
+                item.ano,
+                null,
+                null,
+                item.cartaz,
+                null,
+                null,
+                null,
+                null,
+                null
+            );
+            filmesFavoritos.push(filme);
+            console.log(filmesFavoritos);
+        }
+
+    listarFilmesDois(filmesFavoritos);
+
+};
+
+let listarFilmesDois = async (filmesFavoritos) =>{
+    let listaFilmes = document.querySelector("#lista-filmes");
+    let detalhesDoFilme = document.querySelector("#mostrar-o-filme");
+    listaFilmes.innerHTML = "";
+    detalhesDoFilme.innerHTML ="";
+    console.log(listaFilmes);
+    if(filmesFavoritos.length > 0){
+        console.log("teste");
+        filmesFavoritos.forEach(async(filme) =>{
+            listaFilmes.appendChild(await filme.getCard());
+
+            console.log(filme.id);
+
+            filme.btnInformacoes.onclick=()=>{
+                detalhesFilme(filme.id);
+                
+            }
+        });
+    }
+}
+
 
 let listarFilmes = async (filmes) =>{
-    let listaFilmes = await document.querySelector("#lista-filmes");
+    let listaFilmes = document.querySelector("#lista-filmes");
     let detalhesDoFilme = document.querySelector("#mostrar-o-filme");
     listaFilmes.innerHTML = "";
     detalhesDoFilme.innerHTML ="";
     console.log(listaFilmes);
     if(filmes.length > 0){
-        console.log("ola mundo");
-
         filmes.forEach(async(filme) =>{
             listaFilmes.appendChild(await filme.getCard());
             //console.log(filme.id);
@@ -121,108 +187,6 @@ let listarFilmes = async (filmes) =>{
 botaoBusca.onclick = async() =>{
     buscarFilme();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//========================================================================================================================
-//para gerar um filme completo
-
-let urlTeste = "http://www.omdbapi.com/?apikey=79dc6bc4&i=tt0234215";
-let urlBusca = "http://www.omdbapi.com/?apikey=79dc6bc4&s=";
-
-function gerarFilme(){
-    fetch(urlTeste)
-    .then(resp=>resp.json())
-    .then(filmeJson =>{
-        console.log(filmeJson);
-        console.log("ID: " + filmeJson.imdbID);
-        console.log("Titulo: " + filmeJson.Title);
-        console.log("Ano: " + filmeJson.Year);
-        console.log("Genero: " + filmeJson.Genre);
-        console.log("Cartas: " + filmeJson.Poster);
-        console.log("Diretor: " + filmeJson.Director);
-        console.log("Atores: " + filmeJson.Actors);
-        console.log("Classificacao: " + filmeJson.Rated);
-        console.log("Avaliacao: " + filmeJson.Ratings[1].Value);
-        console.log("Sinopse: " + filmeJson.Plot);
-        console.log("Duracao: " + filmeJson.Runtime);
-        
-        
-    })
-}
-
-
-//gerarFilme();
-
-
-
-
-
 
 
 
