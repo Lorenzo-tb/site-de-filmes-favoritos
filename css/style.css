@@ -55,6 +55,7 @@ header{
 #informacoes{
     display: flex;
     padding-top: 8%;
+    width: 100%;
 }
 
 

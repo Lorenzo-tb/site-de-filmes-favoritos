@@ -98,17 +98,14 @@ class Filme{
         bunnerImg.setAttribute("src",this.cartaz);
         bunnerImg.setAttribute("class", "img-fluid rounded-start");
 
-        
-
-
-
-
         let todosDetalhes = document.createElement("div");
         todosDetalhes.setAttribute("id", "todosDetalhes");
         todosDetalhes.setAttribute("class", "col-md-8");
 
         let maisDetalhes = document.createElement("div");
         maisDetalhes.setAttribute("class", "card-body");
+
+
 
         let titulo = document.createElement("h1");
         titulo.setAttribute("class", "card-title");
@@ -138,21 +135,25 @@ class Filme{
         avaliacao.setAttribute("class", "card-text");
         avaliacao.appendChild(document.createTextNode("Avaliacao: " + this.rated));
 
-
-        let botoes = document.createElement("div");
-        botoes.setAttribute("div","botoes");
         let botaoFav = document.createElement("button");
         botaoFav.setAttribute("class","btn btn-outline-danger btn-detalhes buto");
         botaoFav.setAttribute("id","botaoFavoritar");
         botaoFav.appendChild(document.createTextNode("Favoritar"));
+
+        let botaoDesFav = document.createElement("button");
+        botaoDesFav.setAttribute("class","btn btn-outline-danger btn-detalhes buto");
+        botaoDesFav.setAttribute("id","botaoDesfavoritar");
+        botaoDesFav.appendChild(document.createTextNode("Desfavoritar"));
+
+        let btnEditar = document.createElement("button");
+        btnEditar.setAttribute("class","btn btn-outline-danger btn-detalhes buto");
+        btnEditar.setAttribute("id","btnEditar");
+        btnEditar.appendChild(document.createTextNode("Editar"));
+
         let botaoFechar = document.createElement("button");
         botaoFechar.setAttribute("class","btn btn-outline-danger btn-detalhes buto");
         botaoFechar.setAttribute("id","botaoFechar");
         botaoFechar.appendChild(document.createTextNode("Fechar informações"));
-
-        botoes.appendChild(botaoFav);
-        botoes.appendChild(botaoFechar);
-
 
         divInformacoes.appendChild(bunner);
         bunner.appendChild(bunnerImg);
@@ -171,8 +172,82 @@ class Filme{
         maisDetalhes.appendChild(direcao);
         maisDetalhes.appendChild(classificacao);
         maisDetalhes.appendChild(avaliacao);
-        maisDetalhes.appendChild(botoes);
+        maisDetalhes.appendChild(botaoFav);
+        maisDetalhes.appendChild(botaoDesFav);
+        maisDetalhes.appendChild(btnEditar);
+        maisDetalhes.appendChild(botaoFechar);
 
+
+
+        return divInformacoes;
+    }
+
+    getCardEditar =() =>{
+
+        let divInformacoes = document.createElement("div");
+        divInformacoes.setAttribute("id", "informacoes");
+        divInformacoes.setAttribute("class", "card mb-3");
+
+        let algumaCoisa = document.createElement("div");
+        algumaCoisa.setAttribute("class", "row g-0");
+
+        let bunner = document.createElement("div");
+        bunner.setAttribute("class","col-md-4");
+
+        let bunnerImg = document.createElement("img");
+        bunnerImg.setAttribute("src",this.cartaz);
+        bunnerImg.setAttribute("class", "img-fluid rounded-start");
+
+        let todosDetalhes = document.createElement("div");
+        todosDetalhes.setAttribute("id", "todosDetalhes");
+        todosDetalhes.setAttribute("class", "col-md-8");
+
+        let maisDetalhes = document.createElement("div");
+        maisDetalhes.setAttribute("class", "card-body");
+
+
+        let titulo = document.createElement("h1");
+        titulo.setAttribute("class", "card-title");
+        titulo.appendChild(document.createTextNode("Novo Titulo:"));
+
+        let inputTi = document.createElement("input");
+        inputTi.setAttribute("class","form-control me-2")
+        inputTi.setAttribute("id","inputTi");
+
+        let sinopse = document.createElement("h4");
+        sinopse.setAttribute("class", "card-title");
+        sinopse.appendChild(document.createTextNode("Nova sinopse:"));
+
+        let inputSin = document.createElement("input");
+        inputSin.setAttribute("class","form-control me-2")
+        inputSin.setAttribute("id","inputSin");
+
+        let botaoFav = document.createElement("button");
+        botaoFav.setAttribute("class","btn btn-outline-danger btn-detalhes buto");
+        botaoFav.setAttribute("id","botaoSalvar");
+        botaoFav.appendChild(document.createTextNode("Salvar"));
+
+        let botaoFechar = document.createElement("button");
+        botaoFechar.setAttribute("class","btn btn-outline-danger btn-detalhes buto");
+        botaoFechar.setAttribute("id","botaoFecharEdicao");
+        botaoFechar.appendChild(document.createTextNode("Fechar informações"));
+
+
+        divInformacoes.appendChild(bunner);
+
+        divInformacoes.appendChild(algumaCoisa);
+        algumaCoisa.appendChild(bunner);
+        bunner.appendChild(bunnerImg);
+
+        algumaCoisa.appendChild(todosDetalhes);
+        todosDetalhes.appendChild(maisDetalhes);
+
+        maisDetalhes.appendChild(titulo);
+        maisDetalhes.appendChild(inputTi);
+        maisDetalhes.appendChild(sinopse);
+        maisDetalhes.appendChild(inputSin);
+        maisDetalhes.appendChild(botaoFav);
+        maisDetalhes.appendChild(botaoFechar);
 
 
         return divInformacoes;
