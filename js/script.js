@@ -57,7 +57,7 @@ function buscarFilme() {
             listarFilmes(filmes);
         })
     }
-    return false;
+    //return false;
 }
 
 //gerar detalhes do filme ==============================================================================================
